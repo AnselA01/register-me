@@ -1,0 +1,29 @@
+body {
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+}
+.flex-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.left {
+  width: 35%;
+}
+
+.right {
+  width: 65%;
+}
+
+.additional-time {
+  display: none;
+}
+
+.code-output {
+  display: none;
+  width: 80%;
+  height: 75%;
+  border: solid black 1px;
+
+}
