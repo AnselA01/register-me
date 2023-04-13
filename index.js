@@ -1,5 +1,3 @@
-const date = new Date()
-
 const changeTerm = () => {
   const buttons = document.getElementsByClassName("term-button")
   for (const button of buttons) {
@@ -10,23 +8,31 @@ const changeTerm = () => {
 }
 
 const updateTimes = (term) => {
+  const additionalTimeEle = document.getElementById("additional-time")
+
+  const timeLabelOne = document.getElementById("time-1-label")
+  const timeLabelTwo = document.getElementById("time-2-label")
+  const timeLabelThree = document.getElementById("time-3-label")
+  const timeLabelFour = document.getElementById("time-4-label")
+  
   if (term === "fall-spring") {
-    if (document.getElementById("additional-time").style.display === "block") {
-      document.getElementById("additional-time").style.display = "none"
+    if (additionalTimeEle.style.display === "block") {
+      additionalTimeEle.style.display = "none"
     }
 
-    document.getElementById("time-1-label").innerHTML = "6:30 AM"
-    document.getElementById("time-2-label").innerHTML = "7:00 AM"
-    document.getElementById("time-3-label").innerHTML = "7:15 AM"
+    timeLabelOne.innerHTML = "6:30 AM"
+    timeLabelTwo.innerHTML = "7:00 AM"
+    timeLabelThree.innerHTML = "7:15 AM"
     return
   }
   if (term === "interim") {
-    document.getElementById("additional-time").style.display = "block"
+    additionalTimeEle.style.display = "block"
 
-    document.getElementById("time-1-label").innerHTML = "6:30 PM"
-    document.getElementById("time-2-label").innerHTML = "7:00 PM"
-    document.getElementById("time-3-label").innerHTML = "7:30 PM"
-    document.getElementById("time-4-label").innerHTML = "8:00 PM"
+    timeLabelOne.innerHTML = "6:30 PM"
+    timeLabelTwo.innerHTML = "7:00 PM"
+    timeLabelThree.innerHTML = "7:30 PM"
+    timeLabelFour.innerHTML = "8:00 PM"
+
     return
   }
 }
@@ -34,6 +40,7 @@ const updateTimes = (term) => {
 const submit = () => {
   const times = document.getElementsByClassName("time-button")
   const terms = document.getElementsByClassName("term-button")
+
   let time, term
   
   // get the value of the term input
@@ -72,8 +79,9 @@ const submit = () => {
   registerTime += 10 // add 10ms delay
   console.log(registerTime)
 
-  // the usable code
-  document.getElementById("code-output").innerHTML = `
+  // the code to be copied by user
+  document.getElementById("code-output").innerHTML = 
+  `
   const date = new Date()
   const buttons = document.getElementsByClassName("btn btn-sm btn-primary")
   while (true) {
@@ -85,8 +93,6 @@ const submit = () => {
       break
     }
   }`
+  
   document.getElementById("code-output").style.display = "block"
 }
-
-
-
